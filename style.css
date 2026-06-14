@@ -16,8 +16,11 @@ header { position: sticky; top: 0; z-index: 10; background: #ffffffee; border-bo
 .nav-btn:hover { background: #5a7a66; transform: translateY(-1px); }
 
 /* Hero */
-.hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #fff; }
+.hero { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #fff; padding: 20px; }
 .hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: #2d3e4e; }
+.hero p { max-width: 680px; margin: 0 auto 28px; color: #54606b; line-height: 1.8; }
+.hero-image { margin-bottom: 28px; width: min(860px, 100%); border-radius: 28px; overflow: hidden; box-shadow: 0 24px 50px rgba(45, 62, 78, 0.12); }
+.hero-image img { width: 100%; height: auto; display: block; }
 .btn { display: inline-block; padding: 15px 30px; background: #789a84; color: #fff; text-decoration: none; border-radius: 30px; margin-top: 20px; transition: background 0.3s; }
 .btn:hover { background: #5a7a66; }
 
@@ -47,6 +50,8 @@ header { position: sticky; top: 0; z-index: 10; background: #ffffffee; border-bo
 .gallery { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
 .gallery-item { position: relative; overflow: hidden; border-radius: 22px; background: #fff; box-shadow: 0 18px 35px rgba(45, 62, 78, 0.08); transition: transform 0.35s ease, box-shadow 0.35s ease; }
 .gallery-item:hover { transform: translateY(-6px); box-shadow: 0 26px 45px rgba(45, 62, 78, 0.14); }
+.gallery-item--small { justify-self: center; width: min(280px, 100%); }
+.gallery-item--small .gallery img { min-height: 280px; }
 .gallery img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; display: block; transition: transform 0.4s ease; }
 .gallery-item:hover img { transform: scale(1.05); }
 .gallery figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px; background: rgba(25, 40, 52, 0.73); color: #f8f9fa; font-size: 0.95rem; line-height: 1.5; }
@@ -72,8 +77,220 @@ header { position: sticky; top: 0; z-index: 10; background: #ffffffee; border-bo
 #contact-form select:focus,
 #contact-form textarea:focus { outline: none; border-color: #789a84; box-shadow: 0 0 0 4px rgba(120, 154, 132, 0.12); }
 #contact-form textarea { min-height: 170px; resize: vertical; }
+.form-message { min-height: 24px; font-size: 0.98rem; color: #2d3e4e; margin-bottom: 10px; }
+.form-message.success { color: #2b6f46; }
+.form-message.error { color: #8b2f2f; }
 #contact-form .btn { align-self: flex-start; }
+/* ── Contatti: nuovo layout ── */
 
+.contact-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px;
+}
+
+.contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* Colonna sinistra */
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.contact-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #789a84;
+    margin-bottom: 10px;
+}
+
+.contact-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2d3e4e;
+    line-height: 1.1;
+    margin-bottom: 14px;
+}
+
+.contact-sub {
+    color: #55646f;
+    line-height: 1.8;
+    font-size: 0.97rem;
+    margin-bottom: 32px;
+}
+
+/* Card info */
+.info-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e7ecea;
+    transition: box-shadow 0.25s ease;
+}
+
+.info-row:hover {
+    box-shadow: 0 8px 24px rgba(45, 62, 78, 0.08);
+}
+
+.info-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(120, 154, 132, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.info-label {
+    font-size: 0.75rem;
+    color: #7a8f95;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.info-value {
+    font-size: 0.95rem;
+    color: #2d3e4e;
+    font-weight: 500;
+}
+
+.info-value a {
+    color: #2d3e4e;
+    text-decoration: none;
+}
+
+.info-value a:hover {
+    color: #789a84;
+}
+
+/* Badge */
+.contact-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cbadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.cbadge-green {
+    background: #e8f2ea;
+    color: #3d6d4f;
+}
+
+.cbadge-blue {
+    background: #e6f1fb;
+    color: #185fa5;
+}
+
+/* Form card */
+.form-card {
+    background: #fff;
+    border-radius: 24px;
+    border: 1px solid #e7ecea;
+    padding: 36px 32px;
+}
+
+.form-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d3e4e;
+    margin-bottom: 6px;
+}
+
+.form-card-sub {
+    font-size: 0.88rem;
+    color: #7a8f95;
+    margin-bottom: 28px;
+}
+
+/* Form rows */
+.form-row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.form-submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: #9aacb0;
+}
+
+.btn-dark {
+    background: #2d3e4e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+}
+
+.btn-dark:hover {
+    background: #1f2b36;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+    .contact-split {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-title {
+        font-size: 2rem;
+    }
+
+    .form-row2 {
+        grid-template-columns: 1fr;
+    }
+
+    .form-submit-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
 footer { text-align: center; padding: 40px; background: #2d3e4e; color: #fff; }
 
 @media (max-width: 940px) {
