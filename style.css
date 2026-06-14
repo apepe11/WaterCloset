@@ -57,12 +57,6 @@ header { position: sticky; top: 0; z-index: 10; background: #ffffffee; border-bo
 .gallery figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px; background: rgba(25, 40, 52, 0.73); color: #f8f9fa; font-size: 0.95rem; line-height: 1.5; }
 
 /* Contact Page */
-/* ── Contact Page ── */
-
-.page-content {
-    padding: 0;
-}
-
 .contact-wrap {
     max-width: 1100px;
     margin: 0 auto;
@@ -267,7 +261,7 @@ header { position: sticky; top: 0; z-index: 10; background: #ffffffee; border-bo
 }
 
 .form-message.success { color: #2b6f46; }
-.form-message.error   { color: #8b2f2f; }
+.form-message.error { color: #8b2f2f; }
 
 .form-submit-row {
     display: flex;
@@ -303,44 +297,27 @@ header { position: sticky; top: 0; z-index: 10; background: #ffffffee; border-bo
     transform: translateY(-1px);
 }
 
-/* ── Responsive contatti ── */
-@media (max-width: 860px) {
-    .contact-split {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-title {
-        font-size: 2rem;
-    }
-
-    .form-row2 {
-        grid-template-columns: 1fr;
-    }
-
-    .form-submit-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-@media (max-width: 560px) {
-    .contact-wrap {
-        padding: 40px 18px;
-    }
-
-    .form-card {
-        padding: 24px 18px;
-    }
-}
+/* Footer */
 footer { text-align: center; padding: 40px; background: #2d3e4e; color: #fff; }
 
+/* Responsive */
 @media (max-width: 940px) {
-    .contact-container { grid-template-columns: 1fr; }
+    .page-content { padding: 60px 30px; }
+}
+
+@media (max-width: 860px) {
+    .contact-split { grid-template-columns: 1fr; }
+    .contact-title { font-size: 2rem; }
+    .form-row2 { grid-template-columns: 1fr; }
+    .form-submit-row { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 740px) {
     .main-nav { padding: 18px 24px; }
-    .contact-hero { flex-direction: column; align-items: flex-start; }
-    .contact-hero h2 { font-size: 2.2rem; }
+    .page-content { padding: 40px 20px; }
 }
 
+@media (max-width: 560px) {
+    .contact-wrap { padding: 40px 18px; }
+    .form-card { padding: 24px 18px; }
+}
