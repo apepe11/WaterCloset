@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Closet | Lavora con noi</title>
+    <link rel="icon" href="photos/669924329_18087143873010487_5912451233334755473_n.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="logo">
+                <img src="photos/669924329_18087143873010487_5912451233334755473_n.jpg" width="50" height="50" alt="Logo">
+                <div>
+                    <h1>Water Closet</h1>
+                    <p>Servizi Ambientali</p>
+                </div>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="servizi.html">Servizi</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+                <li><a href="lavora.html">Lavora con noi</a></li>
+                <li class="nav-cta-mobile"><a href="contatti.html" class="nav-btn">Richiedi un preventivo</a></li>
+            </ul>
+            <a href="contatti.html" class="nav-btn nav-btn-desktop">Richiedi un preventivo</a>
+            <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="career-hero">
+            <h1>Unisciti al nostro team</h1>
+            <p>Cerchiamo professionisti appassionati di ambiente e sostenibilità. Inviaci la tua candidatura!</p>
+        </section>
+
+        <section class="career-form-wrapper">
+            <div class="career-form-card">
+                <h2>Candidati ora</h2>
+                <p>Compila il modulo e allega il tuo CV per candidarti.</p>
+
+                <form id="lavora-form" action="https://formsubmit.co/info@watercloset.it" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_subject" value="Nuova candidatura - Water Closet">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+
+                    <div class="form-row2">
+                        <div class="input-group">
+                            <label for="name">Nome e Cognome *</label>
+                            <input type="text" id="name" name="name" placeholder="Mario Rossi" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="mario@esempio.it" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row2">
+                        <div class="input-group">
+                            <label for="phone">Telefono</label>
+                            <input type="tel" id="phone" name="phone" placeholder="340 123 4567">
+                        </div>
+                        <div class="input-group">
+                            <label for="position">Posizione di interesse *</label>
+                            <select id="position" name="position" required>
+                                <option value="">-- Seleziona --</option>
+                                <option>Operaio ambientale</option>
+                                <option>Tecnico manutenzione</option>
+                                <option>Responsabile progetto</option>
+                                <option>Consulente ambientale</option>
+                                <option>Autista camion</option>
+                                <option>Altro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="message">Lettera di presentazione</label>
+                        <textarea id="message" name="message" placeholder="Parlaci di te e perché vuoi unirtiti al team di Water Closet..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="cv">Carica il tuo CV (PDF, DOC, DOCX) *</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+                            <span class="file-input-label">Scegli file...</span>
+                        </div>
+                    </div>
+
+                    <div class="form-message career-message" aria-live="polite"></div>
+
+                    <div class="form-submit-row">
+                        <span class="form-note">I tuoi dati sono al sicuro e usati solo per valutare la candidatura.</span>
+                        <button type="submit" class="btn btn-dark">
+                            Invia candidatura →
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Water Closet. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('nav-open');
+                hamburger.classList.toggle('is-active', isOpen);
+                hamburger.setAttribute('aria-expanded', isOpen);
+            });
+        }
+
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('nav-open');
+                    if (hamburger) {
+                        hamburger.classList.remove('is-active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+
+        // CV file input label update
+        const cvInput = document.getElementById('cv');
+        const fileLabel = document.querySelector('.file-input-label');
+        
+        if (cvInput && fileLabel) {
+            cvInput.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files.length > 0) {
+                    fileLabel.textContent = e.target.files[0].name;
+                }
+            });
+        }
+
+        // Careers form submission
+        const lavoraForm = document.getElementById('lavora-form');
+        const messageBox = document.querySelector('.career-message');
+
+        if (lavoraForm) {
+            lavoraForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (!messageBox) return;
+
+                const formData = new FormData(lavoraForm);
+                messageBox.textContent = 'Invio in corso...';
+                messageBox.className = 'career-message';
+
+                try {
+                    const response = await fetch(lavoraForm.action, {
+                        method: lavoraForm.method,
+                        body: formData,
+                        headers: {
+                            Accept: 'application/json',
+                        },
+                    });
+
+                    if (response.ok) {
+                        messageBox.textContent = '✓ Candidatura inviata con successo! Abbiamo ricevuto il tuo CV e ti contatteremo al più presto.';
+                        messageBox.classList.add('success');
+                        lavoraForm.reset();
+                        if (fileLabel) fileLabel.textContent = 'Scegli file...';
+                        setTimeout(() => {
+                            messageBox.textContent = '';
+                            messageBox.className = 'career-message';
+                        }, 5000);
+                    } else {
+                        throw new Error('Errore nel server');
+                    }
+                } catch (error) {
+                    messageBox.textContent = 'Non è stato possibile inviare la candidatura. Controlla la connessione e riprova.';
+                    messageBox.classList.add('error');
+                    console.error(error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

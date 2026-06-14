@@ -101,12 +101,79 @@ header { position: sticky; top: 0; z-index: 100; background: #ffffffee; border-b
 .btn-dark { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: #2d3e4e; color: #fff; border: none; border-radius: 999px; font-size: 0.95rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.25s ease, transform 0.2s ease; text-decoration: none; }
 .btn-dark:hover { background: #1f2b36; transform: translateY(-1px); }
 
+/* Career Page */
+.career-hero { text-align: center; padding: 60px 50px 40px; background: linear-gradient(135deg, #f8fbf8 0%, #eef5f2 100%); }
+.career-hero h1 { font-size: 2.8rem; color: #2d3e4e; margin-bottom: 16px; }
+.career-hero p { max-width: 680px; margin: 0 auto; color: #55646f; font-size: 1.1rem; line-height: 1.7; }
+
+.career-form-wrapper { max-width: 900px; margin: -40px auto 0; padding: 0 50px 80px; position: relative; z-index: 2; }
+.career-form-card { background: #fff; padding: 50px 45px; border-radius: 28px; box-shadow: 0 30px 60px rgba(45, 62, 78, 0.12); }
+.career-form-card h2 { font-size: 1.8rem; color: #2d3e4e; margin-bottom: 10px; }
+.career-form-card > p { color: #55646f; margin-bottom: 35px; }
+
+#lavora-form { display: grid; gap: 20px; }
+.form-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.input-group { display: grid; gap: 8px; }
+.input-group label { font-weight: 600; color: #2d3e4e; font-size: 0.95rem; }
+
+#lavora-form input,
+#lavora-form select,
+#lavora-form textarea { width: 100%; padding: 14px 16px; border: 1.5px solid #d0d7d4; border-radius: 14px; background: #fcfffd; color: #2d3e4e; font-size: 0.95rem; transition: border-color 0.25s ease, box-shadow 0.25s ease; }
+
+#lavora-form input:focus,
+#lavora-form select:focus,
+#lavora-form textarea:focus { outline: none; border-color: #789a84; box-shadow: 0 0 0 4px rgba(120, 154, 132, 0.12); }
+
+#lavora-form textarea { min-height: 140px; resize: vertical; font-family: inherit; }
+
+.file-input-wrapper { position: relative; display: inline-block; width: 100%; }
+#cv { position: absolute; opacity: 0; width: 0; height: 0; }
+.file-input-label { display: block; padding: 14px 16px; border: 2px dashed #d0d7d4; border-radius: 14px; background: #fcfffd; color: #789a84; text-align: center; font-weight: 600; cursor: pointer; transition: all 0.25s ease; }
+.file-input-wrapper:hover .file-input-label { border-color: #789a84; background: #f0f6f3; }
+#cv:valid ~ .file-input-label { border-color: #2b6f46; color: #2b6f46; }
+
+.career-message { min-height: 24px; font-size: 0.98rem; color: #2d3e4e; }
+.career-message.success { color: #2b6f46; font-weight: 600; }
+.career-message.error { color: #8b2f2f; font-weight: 600; }
+
 /* Footer */
+/* Clients Section */
+#clients { padding: 80px 50px; background: #fff; }
+.clients-header { text-align: center; margin-bottom: 60px; }
+.clients-header h2 { font-size: 2.6rem; color: #2d3e4e; margin-bottom: 12px; position: relative; display: inline-block; }
+.clients-header h2::after { content: ''; display: block; width: 80px; height: 4px; background: #789a84; border-radius: 999px; margin: 18px auto 0; }
+.clients-header p { max-width: 680px; margin: 28px auto 0; color: #55646f; font-size: 1.05rem; line-height: 1.7; }
+
+.clients-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
+.client-card { padding: 40px 32px; background: linear-gradient(135deg, #fafbfa 0%, #f5f8f7 100%); border-radius: 20px; border: 1px solid #e7ecea; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.client-card:hover { transform: translateY(-4px); box-shadow: 0 20px 45px rgba(120, 154, 132, 0.1); }
+
+.client-logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 2px; color: #789a84; margin-bottom: 18px; }
+.client-name { font-size: 1.3rem; font-weight: 700; color: #2d3e4e; margin-bottom: 12px; }
+.client-desc { color: #6b7d82; line-height: 1.6; margin: 0; }
+
 footer { text-align: center; padding: 40px; background: #2d3e4e; color: #fff; }
 
 /* =====================
-   RESPONSIVE — TABLET
+   RESPONSIVE — CLIENTS (< 820px)
    ===================== */
+@media (max-width: 820px) {
+    #clients { padding: 60px 30px; }
+    .clients-header h2 { font-size: 2.1rem; }
+    .clients-grid { gap: 30px; grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    #clients { padding: 40px 20px; }
+    .clients-header h2 { font-size: 1.8rem; }
+    .clients-header p { font-size: 0.95rem; }
+    .client-card { padding: 32px 24px; }
+    .client-logo { font-size: 2.2rem; }
+    .client-name { font-size: 1.1rem; }
+}
+
+
 @media (max-width: 940px) {
     .main-nav { padding: 16px 30px; }
     .page-content { padding: 60px 30px; }
@@ -248,4 +315,24 @@ footer { text-align: center; padding: 40px; background: #2d3e4e; color: #fff; }
 
     .form-submit-row { gap: 10px; }
     .form-note { font-size: 0.78rem; }
+}
+
+/* =====================
+   RESPONSIVE — CAREER PAGE (< 820px)
+   ===================== */
+@media (max-width: 820px) {
+    .career-form-wrapper { padding: 0 24px 60px; }
+    .career-form-card { padding: 36px 28px; }
+    .form-row2 { grid-template-columns: 1fr; }
+    .form-submit-row { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 600px) {
+    .career-hero { padding: 40px 20px 32px; }
+    .career-hero h1 { font-size: 1.8rem; }
+    .career-hero p { font-size: 0.95rem; }
+    .career-form-wrapper { padding: 0 16px 40px; margin-top: -32px; }
+    .career-form-card { padding: 28px 20px; border-radius: 20px; }
+    .career-form-card h2 { font-size: 1.4rem; }
+    .btn-dark { width: 100%; justify-content: center; }
 }
