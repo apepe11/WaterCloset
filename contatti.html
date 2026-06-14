@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti | Water Closet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="logo">
+                <img src="photos/669924329_18087143873010487_5912451233334755473_n.jpg" width="50" height="50" alt="Logo">
+                <div>
+                    <h1>Water Closet</h1>
+                    <p>Servizi Ambientali</p>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="servizi.html">Servizi</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="contact-hero">
+            <div>
+                <h2>Contatti</h2>
+                <p>Parla con il nostro team ambientale per richiedere assistenza, preventivi o consulenze dedicate al tuo sito.</p>
+            </div>
+            <span class="contact-badge">Risposta rapida</span>
+        </section>
+
+        <div class="contact-container">
+            <aside class="contact-info">
+                <div class="contact-card">
+                    <h3>Indirizzo</h3>
+                    <p>Via Esempio 1, 00100 Città (RM)</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Telefono</h3>
+                    <p>06 12345678</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p>info@watercloset.it</p>
+                </div>
+            </aside>
+
+            <form id="contact-form">
+                <div class="input-group">
+                    <label for="name">Nome</label>
+                    <input id="name" type="text" placeholder="Inserisci il tuo nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="esempio@dominio.it" required>
+                </div>
+                <div class="input-group">
+                    <label for="service">Servizio richiesto</label>
+                    <select id="service">
+                        <option>Gestione Rifiuti</option>
+                        <option>Manutenzione Ambientale</option>
+                        <option>Interventi di Emergenza</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="message">Messaggio</label>
+                    <textarea id="message" placeholder="Scrivi qui la tua richiesta..."></textarea>
+                </div>
+                <button type="submit" class="btn">Invia</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Water Closet. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+</html>
